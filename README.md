@@ -6,4 +6,6 @@ Data source: https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%
 
 Run_analysis.R does the following:
 
+The script runs with the unzipped data saved into the /data subdirectory of current working directory.
+
 Merges the training and the test sets to create one data set; extracts mean and standard deviation variables; adds labels, and exports tidy data containing average of each activity and subject.
