@@ -3,9 +3,9 @@
 
 #Features has the labels for the data
 library(dplyr)
-ActLbl<- read.table("./data/UCI HAR Dataset/activity_labels.txt",
+ActLbl<- read.table("/UCI HAR Dataset/activity_labels.txt",
                     col.names = c("ActNum", "ActLabel"))
-DataLbl<- read.table("./data/UCI HAR Dataset/features.txt",
+DataLbl<- read.table("/UCI HAR Dataset/features.txt",
                     col.names=c("ColNum", "DataLabel"))
 
 #Variables selects rows that have mean or std
@@ -14,9 +14,9 @@ Variables<-rbind(Variables, filter(DataLbl, grepl("std", DataLabel)))
 
 
 #these are activity labels, subject labels, and the data itself
-TrnAct<- read.table("./data/UCI HAR Dataset/train/y_train.txt",
+TrnAct<- read.table("/UCI HAR Dataset/train/y_train.txt",
                     col.names = "Activity")
-TrnSub<-read.table('./data/UCI HAR Dataset/train/subject_train.txt',
+TrnSub<-read.table('/UCI HAR Dataset/train/subject_train.txt',
                    col.names = "Subject")
 Train<-read.table("./data/UCI HAR Dataset/train/X_train.txt",
                   col.names = DataLbl$DataLabel)
@@ -29,11 +29,11 @@ TrainData<-select(Train, c(1, 2, VarCol))
 #At this point, TrainData has Activity #, Subject #, and the various 
 #means and stds for each event.
 
-TestAct <-read.table("./data/UCI HAR Dataset/test/y_test.txt",
+TestAct <-read.table("/UCI HAR Dataset/test/y_test.txt",
                      col.names = "Activity")
-TestSub<-read.table('./data/UCI HAR Dataset/test/subject_test.txt',
+TestSub<-read.table('/UCI HAR Dataset/test/subject_test.txt',
                    col.names = "Subject")
-Test <-read.table("./data/UCI HAR Dataset/test/X_test.txt", 
+Test <-read.table("/UCI HAR Dataset/test/X_test.txt", 
                   col.names = DataLbl$DataLabel)
 Test<-cbind( TestAct, TestSub, Test)
 TestData<-select(Test, c(1, 2, VarCol))
